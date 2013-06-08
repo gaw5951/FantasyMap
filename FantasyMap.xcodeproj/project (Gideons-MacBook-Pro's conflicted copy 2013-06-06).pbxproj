@@ -1,0 +1,110 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXFileReference section */
+		F3161BC9175808B3004382D6 /* Editor.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Editor.js; sourceTree = "<group>"; };
+		F3161BCB17594B64004382D6 /* Obj.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Obj.js; sourceTree = "<group>"; };
+		F3161BCC17594BC2004382D6 /* Layer.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Layer.js; sourceTree = "<group>"; };
+		F3161BCD17594C14004382D6 /* Env.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Env.js; sourceTree = "<group>"; };
+		F379D3601759753E00310E89 /* main_layer.fmd */ = {isa = PBXFileReference; lastKnownFileType = text; path = main_layer.fmd; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.javascript; };
+		F3C393B317527CF70070B26F /* map.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = map.html; sourceTree = "<group>"; };
+		F3C393B917527D510070B26F /* wip_worldmap.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = wip_worldmap.bmp; sourceTree = "<group>"; };
+		F3C393BB17527D580070B26F /* square.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = square.csv; sourceTree = "<group>"; };
+		F3C393BC17527D580070B26F /* world_outline.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = world_outline.csv; sourceTree = "<group>"; };
+		F3C393BE1752A2530070B26F /* square.ini */ = {isa = PBXFileReference; lastKnownFileType = text; path = square.ini; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.javascript; };
+		F3C393BF1752EAC40070B26F /* world_outline.ini */ = {isa = PBXFileReference; lastKnownFileType = text; path = world_outline.ini; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.javascript; };
+		F3C393C01755A9EF0070B26F /* Main.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Main.js; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		F3C393AC17527BE80070B26F = {
+			isa = PBXGroup;
+			children = (
+				F3C393BA17527D580070B26F /* objects */,
+				F3C393B817527D510070B26F /* assets */,
+				F3C393B317527CF70070B26F /* map.html */,
+				F3C393C01755A9EF0070B26F /* Main.js */,
+				F3161BC9175808B3004382D6 /* Editor.js */,
+				F3161BCD17594C14004382D6 /* Env.js */,
+				F3161BCC17594BC2004382D6 /* Layer.js */,
+				F3161BCB17594B64004382D6 /* Obj.js */,
+			);
+			sourceTree = "<group>";
+		};
+		F3C393B817527D510070B26F /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				F3C393B917527D510070B26F /* wip_worldmap.bmp */,
+			);
+			path = assets;
+			sourceTree = "<group>";
+		};
+		F3C393BA17527D580070B26F /* objects */ = {
+			isa = PBXGroup;
+			children = (
+				F3C393BF1752EAC40070B26F /* world_outline.ini */,
+				F3C393BC17527D580070B26F /* world_outline.csv */,
+				F3C393BE1752A2530070B26F /* square.ini */,
+				F3C393BB17527D580070B26F /* square.csv */,
+				F379D3601759753E00310E89 /* main_layer.fmd */,
+			);
+			path = objects;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXProject section */
+		F3C393AD17527BE80070B26F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+			};
+			buildConfigurationList = F3C393B017527BE80070B26F /* Build configuration list for PBXProject "FantasyMap" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F3C393AC17527BE80070B26F;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+			);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		F3C393B117527BE80070B26F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		F3C393B217527BE80070B26F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F3C393B017527BE80070B26F /* Build configuration list for PBXProject "FantasyMap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F3C393B117527BE80070B26F /* Debug */,
+				F3C393B217527BE80070B26F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F3C393AD17527BE80070B26F /* Project object */;
+}
