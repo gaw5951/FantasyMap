@@ -103,7 +103,7 @@ function loadLayers()
 		
 		_env.addLayer(curr_layer);
 	}
-	updateLayerList();
+	editor.updateLayerList();
 }
 
 function loadObjs()
@@ -249,6 +249,10 @@ function handleKeyDown(evt)
 function handleMouseUp(evt)
 {
 	dragStart = null;
+	lastX = evt.offsetX || (evt.pageX - canvas.offsetLeft);
+	lastY = evt.offsetY || (evt.pageY - canvas.offsetTop);
+	var pt = ctx.transformedPoint(lastX, lastY);
+	editor.currObj.addVert(pt.x, pt.y);
 	//if (!dragged) zoom(evt.shiftKey ? -1 : 1);
 }
 

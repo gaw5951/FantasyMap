@@ -90,8 +90,27 @@
 				<b>Options</b>
 			</span>
 			<div id="rp_layers" class="rp_pane" style="height:570px;">
-				<select id="layer_list" multiple style="height:570px; width:200px;" onchange="selectLayer(this)">
-				</select>
+				<span style="float:left;">
+					<select id="layer_list" multiple style="height:570px; width:200px;" onchange="editor.selectLayer(this)">
+					</select>
+				</span>
+				<span style="float:left;width:200px;">
+					<div>
+						<form action="javascript:editor.newLayer(this.newLayerForm);" name="newLayerForm">
+							<input type="text" name="name" value="New Layer"/>
+							<input type="submit" name="New Layer" value="New Layer" />
+						</form>
+					</div>
+					<div>
+						<form action="javascript:editor.newObj(this.newObjForm);" name="newObjForm">
+							<input type="text" name="name" value="New Object" />
+							<input type="text" name="lineWidth" value="5" />
+							<input type="text" name="fillColor" value="black" />
+							<input type="submit" name="submit" value="New Object" />
+						</form>
+					</div>
+				</span>
+				
 			</div>
 		</div>
 		<div id="lower_pane">

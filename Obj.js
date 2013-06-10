@@ -19,6 +19,27 @@ Obj.prototype.addVert = function(x, y)
 	return this.verts;
 }
 
+Obj.prototype.removeVert = function(x, y)
+{
+	var search = {'x': x, 'y':y};
+	
+	for(var i = 0; i < this.verts.length; i++)
+	{
+		if(this.verts[i] == search)
+		{
+			this.verts.splice(i,1);
+			break;
+		}
+	}
+	return this.verts;
+}
+
+Obj.prototype.removeLastVert = function()
+{
+	this.verts.pop();
+	return this.verts;
+}
+
 // ---------------------------------
 //		Option Setters
 // ---------------------------------

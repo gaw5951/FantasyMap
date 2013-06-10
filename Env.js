@@ -2,7 +2,7 @@ var Env = function()
 {
 	this.layers			= new Array();	//array of Layer
 	this.objects		= new Array();	//array of objs
-	this.current_layer	= 0;			//index into layers
+	this.current_layer	= -1;			//index into layers
 }
 
 // ---------------------------------
@@ -10,12 +10,15 @@ var Env = function()
 // ---------------------------------
 Env.prototype.newLayer = function(name)
 {
+	if(typeof name == "undefined" )
+		name = "New Layer";
+	
 	var newLayer = new Layer();
 	newLayer.name = name;
 	this.layers.push(newLayer);
 	this.layers.sort(Obj.compare);
 	
-	updateLayerList();
+	editor.updateLayerList();
 	
 	return newLayer;
 }
@@ -26,7 +29,7 @@ Env.prototype.addLayer = function(inLayer)
 	this.layers.push(inLayer);
 	this.layers.sort(Obj.compare);
 	
-	updateLayerList();
+	editor.updateLayerList();
 	
 	return inLayer;
 }
@@ -72,8 +75,23 @@ Env.prototype.addObj = function(oth)
 			break;
 		}
 	}
-	if(u_id)
-		this.objects.push(oth);
-	
-	return u_id;
+	if(!u_id)
+		oth.set_id(_env.getNextObjId());
+
+	this.objects.push(oth);
+	if(this.current_layer != -1)
+		this.layers[this.current_layer].addObj(oth);
+}
+
+Env.prototype.getNextObjId = function()
+{
+	var u_id = 0;
+	for(var i = 0; i < this.objects.length; i++)
+	{
+		if(this.objects[i].id > u_id)
+		{
+			u_id = this.objects[i].id;
+		}
+	}
+	return (u_id+1);
 }
