@@ -30,10 +30,10 @@
 					background:			#fff;
 					position:			absolute;
 					/*width:			476px;*/
-					height:				600px;
 					top:				2px;
 					left:				806px;
 					right:				2px;
+					bottom:				2px;
 					padding:			3px;
 					padding-top:		5px;
 				}
@@ -43,11 +43,10 @@
 					border:				1px solid #000;
 					background:			#fff;
 					position:			absolute;
-					/*width:			1280px;*/
+					width:				800px;
 					top:				606px;
 					bottom:				2px;
 					left:				2px;
-					right:				2px;
 				}
 				.rp_pane
 				{
@@ -59,7 +58,46 @@
 					background-color:	#d0d0d0;
 					border:				1px solid black;
 				}
-				b{
+				.option_box
+				{
+					float:				left;
+					width:				200px;
+				}
+				.option_box:first-child
+				{
+					margin-right:		4px;
+				}
+				.option_area
+				{
+					margin-top:			10px;
+					border:				1px dashed black;
+					background-color:	#f2f2f2;
+					height:				300px;
+				}
+				.option_area b
+				{		
+					font-size:			18px;
+					font-weight:		bold;
+					margin-left:		12px;
+				}
+				.lower_area
+				{
+					bottom:				0px;
+					width:				250px;
+					height:				100%;
+					display:			inline-block;
+				}
+				.lower_area#middle
+				{
+					border-right:		1px dashed black;
+					border-left:		1px dashed black;
+				}
+				.lower_area#right
+				{
+					width:				298px;
+				}
+				.badtab
+				{
 					border-top:			1px solid black;
 					border-left:		1px solid black;
 					border-right:		1px solid black;
@@ -67,8 +105,13 @@
 					margin-right:		2px;
 					padding:			2px;
 				}
+				select
+				{
+					height:				400px;
+					width:				200px;
+				}
 			</style>
-			<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+			<script type="text/javascript" src="jquery.min.js"></script>
 			<script type="text/javascript" src="Editor.js"></script>
 			<script type="text/javascript" src="Env.js"></script>
 			<script type="text/javascript" src="Obj.js"></script>
@@ -84,24 +127,26 @@
 
 		<canvas id="canvas" tabindex="0">Your browser doesn't support an HTML5 Canvas.</canvas>
 		<div id="right_pane">
-			<span id="rp_tabs">
-				<b>Layers</b>
-				<b>Tools</b>
-				<b>Options</b>
-			</span>
-			<div id="rp_layers" class="rp_pane" style="height:570px;">
-				<span style="float:left;">
-					<select id="layer_list" multiple style="height:570px; width:200px;" onchange="editor.selectLayer(this)">
+			<div id="rp_layers">
+				<span class="option_box">
+					<select id="layer_list" multiple onchange="editor.selectLayer(this)">
 					</select>
-				</span>
-				<span style="float:left;width:200px;">
-					<div>
+					<div class="option_area">
+						<b>Layer</b>
+						<hr />
 						<form action="javascript:editor.newLayer(this.newLayerForm);" name="newLayerForm">
 							<input type="text" name="name" value="New Layer"/>
 							<input type="submit" name="New Layer" value="New Layer" />
 						</form>
 					</div>
-					<div>
+				</span>
+				<span class="option_box">
+					<select id="object_list" multiple onchange="editor.selectObj(this)">
+					</select>
+					
+					<div class="option_area">
+						<b>Object</b>
+						<hr />
 						<form action="javascript:editor.newObj(this.newObjForm);" name="newObjForm">
 							<input type="text" name="name" value="New Object" />
 							<input type="text" name="lineWidth" value="5" />
@@ -110,11 +155,18 @@
 						</form>
 					</div>
 				</span>
-				
 			</div>
 		</div>
 		<div id="lower_pane">
-			text
+			<span class="lower_area">
+				one
+			</span>
+			<span class="lower_area" id="middle">
+				two
+			</span>
+			<span class="lower_area" id="right">
+				three
+			</span>
 		</div>
 		<script type="text/javascript" src="main.js"></script>
 	</body>
