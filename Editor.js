@@ -11,6 +11,15 @@ var editor = function()
 editor.selectLayer = function selectLayer(layer)
 {
 	_env.selectLayerByName(layer.value);
+	editor.updateObjList();
+}
+
+editor.selectObj = function selectObj(obj)
+{
+	//select obj for editing etc
+	var oList = document.getElementById('object_list');
+	var objId = oList.options[oList.selectedIndex].attributes['valueid'].value;
+	this.currObj = _env.selectObjectById(objId);
 }
 
 editor.updateLayerList = function updateLayerList()
@@ -42,6 +51,27 @@ editor.updateLayerList = function updateLayerList()
 			inDisplayList = false;
 		}
 	}
+	editor.updateObjList();
+}
+
+editor.updateObjList = function updateObjList()
+{
+	var oList = document.getElementById('object_list');
+	var optionTags = oList.getElementsByTagName('option');
+
+	oList.innerHTML = '';
+	
+	if(_env.current_layer != -1)
+	{
+		var layer_objs = _env.layers[_env.current_layer].l_objs;
+		for(var i = 0; i < layer_objs.length; i++)
+		{
+			var newField = document.createElement('option');
+			newField.setAttribute('valueid', _env.objects[layer_objs[i]].id);
+			newField.innerHTML = _env.objects[layer_objs[i]].name;
+			oList.appendChild(newField);
+		}
+	}
 }
 
 editor.newLayer = function newLayer(e)
@@ -61,6 +91,7 @@ editor.newObj = function newObj(e)
 	this.currObj = oth;
 	_env.addObj(oth);
 	this.mode = 1;
+	editor.updateObjList();
 }
 
 editor.endObj = function endNewObj()

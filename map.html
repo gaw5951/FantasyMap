@@ -5,112 +5,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 			<title>Fantasy Map</title>
 		
-			<style type="text/css" media="screen">
-				/* 1280x1024 */
-				body
-				{
-					background:			#eee;
-				}
-				#canvas
-				{
-					display:			block;
-					background:			#fff;
-					border:				1px dashed #000;
-					/*padding:			2px;*/
-					position:			absolute;
-					width:				800px;
-					height:				600px;
-					top:				2px;
-					left:				2px;
-				}
-				#right_pane
-				{
-					/*padding:			2px;*/
-					border:				1px solid #000;
-					background:			#fff;
-					position:			absolute;
-					/*width:			476px;*/
-					top:				2px;
-					left:				806px;
-					right:				2px;
-					bottom:				2px;
-					padding:			3px;
-					padding-top:		5px;
-				}
-				#lower_pane
-				{
-					/*padding:			2px;*/
-					border:				1px solid #000;
-					background:			#fff;
-					position:			absolute;
-					width:				800px;
-					top:				606px;
-					bottom:				2px;
-					left:				2px;
-				}
-				.rp_pane
-				{
-					right:				0px;
-					left:				0px;
-					bottom:				0px;
-					top:				20px;
-					padding:			2px;
-					background-color:	#d0d0d0;
-					border:				1px solid black;
-				}
-				.option_box
-				{
-					float:				left;
-					width:				200px;
-				}
-				.option_box:first-child
-				{
-					margin-right:		4px;
-				}
-				.option_area
-				{
-					margin-top:			10px;
-					border:				1px dashed black;
-					background-color:	#f2f2f2;
-					height:				300px;
-				}
-				.option_area b
-				{		
-					font-size:			18px;
-					font-weight:		bold;
-					margin-left:		12px;
-				}
-				.lower_area
-				{
-					bottom:				0px;
-					width:				250px;
-					height:				100%;
-					display:			inline-block;
-				}
-				.lower_area#middle
-				{
-					border-right:		1px dashed black;
-					border-left:		1px dashed black;
-				}
-				.lower_area#right
-				{
-					width:				298px;
-				}
-				.badtab
-				{
-					border-top:			1px solid black;
-					border-left:		1px solid black;
-					border-right:		1px solid black;
-					background-color:	#d0d0d0;
-					margin-right:		2px;
-					padding:			2px;
-				}
-				select
-				{
-					height:				400px;
-					width:				200px;
-				}
-			</style>
+			<link href="map.css" rel="stylesheet">
 			<script type="text/javascript" src="jquery.min.js"></script>
 			<script type="text/javascript" src="Editor.js"></script>
 			<script type="text/javascript" src="Env.js"></script>
@@ -124,7 +19,6 @@
 			<div id="layer_objects" style="display:none;positon:absolute;">
 			</div>
 		</div>
-
 		<canvas id="canvas" tabindex="0">Your browser doesn't support an HTML5 Canvas.</canvas>
 		<div id="right_pane">
 			<div id="rp_layers">
@@ -143,7 +37,6 @@
 				<span class="option_box">
 					<select id="object_list" multiple onchange="editor.selectObj(this)">
 					</select>
-					
 					<div class="option_area">
 						<b>Object</b>
 						<hr />
@@ -151,7 +44,7 @@
 							<input type="text" name="name" value="New Object" />
 							<input type="text" name="lineWidth" value="5" />
 							<input type="text" name="fillColor" value="black" />
-							<input type="submit" name="submit" value="New Object" />
+							<input type="submit" name="submit" value="Create Object" />
 						</form>
 					</div>
 				</span>

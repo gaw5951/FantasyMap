@@ -95,3 +95,15 @@ Env.prototype.getNextObjId = function()
 	}
 	return (u_id+1);
 }
+
+Env.prototype.selectObjectById = function(oId)
+{
+	for(var i = 0; i < _env.objects.length; i ++)
+	{
+		if(_env.objects[i].id == oId)
+		{
+			return _env.objects[i];
+		}
+	}
+	return 0;
+}

@@ -252,7 +252,10 @@ function handleMouseUp(evt)
 	lastX = evt.offsetX || (evt.pageX - canvas.offsetLeft);
 	lastY = evt.offsetY || (evt.pageY - canvas.offsetTop);
 	var pt = ctx.transformedPoint(lastX, lastY);
-	editor.currObj.addVert(pt.x, pt.y);
+	if(editor.mode == 1) //TODO: pass in the mouse evnets and handle logic there
+	{
+		editor.currObj.addVert(pt.x, pt.y);
+	}
 	//if (!dragged) zoom(evt.shiftKey ? -1 : 1);
 }
 

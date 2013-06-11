@@ -17,6 +17,7 @@
 		F3C393C01755A9EF0070B26F /* Main.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Main.js; sourceTree = "<group>"; };
 		F3D9866B1764E10A0049D285 /* main_layer.fmd */ = {isa = PBXFileReference; lastKnownFileType = text; path = main_layer.fmd; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.javascript; };
 		F3D9866C17669E100049D285 /* jquery.min.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = jquery.min.js; sourceTree = "<group>"; };
+		F3D9866D1766B3DB0049D285 /* map.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = map.css; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.css; };
 		F3E098E11763E1B6003F9D36 /* Env.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Env.js; sourceTree = "<group>"; };
 		F3E098E21763E1B6003F9D36 /* Layer.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Layer.js; sourceTree = "<group>"; };
 		F3E098E31763E1B6003F9D36 /* Obj.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Obj.js; sourceTree = "<group>"; };
@@ -29,6 +30,7 @@
 				F3D9866C17669E100049D285 /* jquery.min.js */,
 				F3C393BA17527D580070B26F /* objects */,
 				F3C393B817527D510070B26F /* assets */,
+				F3D9866D1766B3DB0049D285 /* map.css */,
 				F3C393B317527CF70070B26F /* map.html */,
 				F3C393C01755A9EF0070B26F /* Main.js */,
 				F3161BC9175808B3004382D6 /* Editor.js */,
