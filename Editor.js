@@ -1,4 +1,6 @@
 //editor variable to make calls clear
+//TODO: NEED TO MAKE THE OBJECT CREATION Click button change properties not change properties click button
+
 var editor = function()
 {
 	this.currObj = 0;
