@@ -257,6 +257,7 @@ function handleMouseUp(evt)
 		editor.currObj.addVert(pt.x, pt.y);
 	}
 	//if (!dragged) zoom(evt.shiftKey ? -1 : 1);
+	draw();
 }
 
 function handleScroll(evt)

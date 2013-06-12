@@ -19,47 +19,52 @@
 			<div id="layer_objects" style="display:none;positon:absolute;">
 			</div>
 		</div>
-		<canvas id="canvas" tabindex="0">Your browser doesn't support an HTML5 Canvas.</canvas>
-		<div id="right_pane">
-			<div id="rp_layers">
-				<span class="option_box">
-					<select id="layer_list" multiple onchange="editor.selectLayer(this)">
-					</select>
-					<div class="option_area">
-						<b>Layer</b>
-						<hr />
-						<form action="javascript:editor.newLayer(this.newLayerForm);" name="newLayerForm">
-							<input type="text" name="name" value="New Layer"/>
-							<input type="submit" name="New Layer" value="New Layer" />
-						</form>
-					</div>
+		<div id="landing_screen" class="main_app" style="text-align:center;" onclick="javascript:document.getElementById('main_screen').style.display='block';document.getElementById('landing_screen').style.display='none';">
+			<h1>Click here to enter map, this will be a loading screen.</h1>
+		</div>
+		<div id="main_screen" class="main_app">
+			<canvas id="canvas" tabindex="0">Your browser doesn't support an HTML5 Canvas.</canvas>
+			<div id="right_pane">
+				<div id="rp_layers">
+					<span class="option_box">
+						<select id="layer_list" multiple onchange="editor.selectLayer(this)">
+						</select>
+						<div class="option_area">
+							<b>Layer</b>
+							<hr />
+							<form action="javascript:editor.newLayer(this.newLayerForm);" name="newLayerForm">
+								<input type="text" name="name" value="New Layer"/>
+								<input type="submit" name="New Layer" value="New Layer" />
+							</form>
+						</div>
+					</span>
+					<span class="option_box">
+						<select id="object_list" multiple onchange="editor.selectObj(this)">
+						</select>
+						<div class="option_area">
+							<b>Object</b>
+							<hr />
+							<form action="javascript:editor.newObj(this.newObjForm);" name="newObjForm">
+								<input type="text" name="name" value="New Object" />
+								<input type="text" name="lineWidth" value="5" />
+								<input type="text" name="fillColor" value="black" />
+								<input type="submit" name="submit" value="Create Object" />
+							</form>
+						</div>
+					</span>
+				</div>
+			</div>
+			<div id="lower_pane">
+				<span class="lower_area">
+					one
 				</span>
-				<span class="option_box">
-					<select id="object_list" multiple onchange="editor.selectObj(this)">
-					</select>
-					<div class="option_area">
-						<b>Object</b>
-						<hr />
-						<form action="javascript:editor.newObj(this.newObjForm);" name="newObjForm">
-							<input type="text" name="name" value="New Object" />
-							<input type="text" name="lineWidth" value="5" />
-							<input type="text" name="fillColor" value="black" />
-							<input type="submit" name="submit" value="Create Object" />
-						</form>
-					</div>
+				<span class="lower_area" id="middle">
+					two
+				</span>
+				<span class="lower_area" id="right">
+					three
 				</span>
 			</div>
-		</div>
-		<div id="lower_pane">
-			<span class="lower_area">
-				one
-			</span>
-			<span class="lower_area" id="middle">
-				two
-			</span>
-			<span class="lower_area" id="right">
-				three
-			</span>
 		</div>
 		<script type="text/javascript" src="main.js"></script>
 	</body>
