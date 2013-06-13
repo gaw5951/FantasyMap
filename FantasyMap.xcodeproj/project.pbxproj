@@ -28,8 +28,6 @@
 		F3C393AC17527BE80070B26F = {
 			isa = PBXGroup;
 			children = (
-				F3D9866F17682EBE0049D285 /* client */,
-				F3D9867017682EBE0049D285 /* server */,
 				F3C393BA17527D580070B26F /* objects */,
 				F3C393B817527D510070B26F /* assets */,
 				F3D9866D1766B3DB0049D285 /* map.css */,
@@ -40,6 +38,7 @@
 				F3E098E21763E1B6003F9D36 /* Layer.js */,
 				F3E098E31763E1B6003F9D36 /* Obj.js */,
 				F3D9866E1767DF390049D285 /* server.js */,
+				F3D9866C17669E100049D285 /* jquery.min.js */,
 			);
 			sourceTree = "<group>";
 		};
@@ -61,22 +60,6 @@
 				F3C393BB17527D580070B26F /* square.csv */,
 			);
 			path = objects;
-			sourceTree = "<group>";
-		};
-		F3D9866F17682EBE0049D285 /* client */ = {
-			isa = PBXGroup;
-			children = (
-				F3D9866C17669E100049D285 /* jquery.min.js */,
-			);
-			name = client;
-			path = "../../../../Users/gideon/Dropbox/dnd campaign/FantasyMap/client";
-			sourceTree = DEVELOPER_DIR;
-		};
-		F3D9867017682EBE0049D285 /* server */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = server;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

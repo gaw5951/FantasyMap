@@ -18,7 +18,7 @@
 var A = 'assets/';
 var O = 'objects/';
 var DOWNLOAD_URI = '<a href="data:application/octet-stream,field1%2Cfield2%0Afoo%2Cbar%0Agoo%2Cgai%0A">CSV</a>';
-
+var res_data = 0;
 
 // ---------------------------------
 //		MARK: Load Assets
@@ -30,6 +30,15 @@ $(document).ready(function()
 				  
 				  var divObjs = document.getElementById('vert_objects');
 				  var divLayers = document.getElementById('layer_objects');
+				  
+				  
+				  var addr = document.URL.replace(new RegExp('/','gm'),'').split(':');
+				  var socket = io.connect('http://' + addr[1] + ':8000');
+				  socket.on('init_data', function (data) {
+							console.log(data);
+							res_data = data;
+							socket.emit('init_complete', true);
+							});
 				  
 				  for (var i = 0; i < objFiles.length; i++)
 				  {
