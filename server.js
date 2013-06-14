@@ -1,15 +1,26 @@
-/*var connect = require('connect');
-connect.createServer(			 
-		connect.logger({ immediate: true, format: 'default' }),
-		connect.static(__dirname)
-).listen(8000);*/
-
+//-------------------------
+//			Requires
+//-------------------------
+var net = require('net');
+var util = require('./server_data.js');
 var fs = require('fs');
 var express = app = require('express')
 , app = app()
 , server = require('http').createServer(app)
 , io = require('socket.io').listen(server);
 
+
+//-------------------------
+//			Variables
+//-------------------------
+var clients = [];
+
+
+
+
+//-------------------------
+//			INIT
+//-------------------------
 
 server.listen(8000);
 
@@ -21,6 +32,7 @@ app.get('/', function (req, res) {
 		});
 
 io.sockets.on('connection', function (socket) {
+			  clients.push(socket);
 			  
 			  socket.emit('init_data', { layers: client_data[0] });
 			  socket.on('init_complete', function (data) {
@@ -28,13 +40,6 @@ io.sockets.on('connection', function (socket) {
 						});
 			  });
 
-var clients = [];
-var client_data = [];
-
-
-// load main_layer.fmd
-fs.readFile('./objects/main_layer.fmd', function (err, data) {
-			if (err) throw err;
-			console.log(data);
-			client_data[0] = data.toString();
-			});
+console.log(typeof util);
+var n = util.add();
+console.log(typeof n);

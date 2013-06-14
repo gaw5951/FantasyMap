@@ -39,7 +39,7 @@ $(document).ready(function()
 							res_data = data;
 							socket.emit('init_complete', true);
 							});
-				  
+				  /*
 				  for (var i = 0; i < objFiles.length; i++)
 				  {
 				  (function(iter)
@@ -84,7 +84,7 @@ $(document).ready(function()
 						  }
 						  });
 				   })(i);
-				  }
+				  }*/
 				  
 				  });
 
