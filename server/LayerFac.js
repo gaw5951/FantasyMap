@@ -7,9 +7,16 @@ function LayerFac()
 	//w/e
 }
 
-LayerFac.prototype.add = function(name)
+LayerFac.prototype.newLayerFromJSON = function(jsStr)
 {
-	return new Layer();
+	var inLayer = JSON.parse(jsStr);
+	var retLayer = new Layer();
+	
+	retLayer.set_name(inLayer.name);
+	retLayer.set_l_objs(inLayer.l_objs);
+	retLayer.set_prio(inLayer.prio);
+
+	return retLayer;
 	
 }
 

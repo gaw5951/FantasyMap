@@ -39,6 +39,29 @@ $(document).ready(function()
 							res_data = data;
 							socket.emit('init_complete', true);
 							});
+				  function storeData(data)
+				  {
+					  //objs
+				  
+					  var myvar = data.objects;
+					  var idstr = 'objs_' + iter;
+					  var newField = document.createElement('input');
+					  newField.setAttribute('id', idstr);
+					  newField.setAttribute('type', 'hidden');
+					  newField.setAttribute('value', myvar);
+					  divObjs.appendChild(newField);
+					  
+					  //layers
+					  myvar = data.layers;
+					  idstr = 'layer_' + iter;
+					  newField = document.createElement('input');
+					  newField.setAttribute('id', idstr);
+					  newField.setAttribute('type', 'hidden');
+					  newField.setAttribute('value', myvar);
+					  divLayers.appendChild(newField);
+				  
+				  }
+				  
 				  /*
 				  for (var i = 0; i < objFiles.length; i++)
 				  {

@@ -3,38 +3,37 @@ module.exports =  new Logger();
 var fs = require('fs');
 var path = require('path');
 
-function Logger(level)
+function Logger()
 {
 	
-	this.level = 0;
+	this.level = 1;
 	//levels:
-	//	0 - all
+	//	0 - minimal
+	//	1 - normal
 	//
-	//
-	//	6 - debug
+	//	6 - verbose
+	//	7 - debug
 	if(typeof level != "undefined" )
 		this.level = level;
-	
-	
+}
+
+Logger.prototype.set_level = function(level)
+{
+	this.level = level;
+	if(typeof level == "undefined" )
+		this.level = 1;
 }
 
 Logger.prototype.log = function(text, level)
 {
 	if(typeof level == "undefined" )
-		level = 0;
+		level = 1;
 	
-	switch(level)
+	if(level <= this.level)
 	{
-		case 1:
-			//
-			break;
-		case 2:
-			//
-			break;
-		default:
-			//
-			break;
+		console.log(text);
 	}
-	
-	console.log(text);
 }
+
+
+//logger.log("Printing ALL SIO TRRAFIC", 6); //6 being verbose

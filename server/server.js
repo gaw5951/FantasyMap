@@ -10,6 +10,8 @@ var express = app = require('express')
 , io = require('socket.io').listen(server);
 
 var sDat = require('./ServerData.js');
+var log = require('./Logger.js');
+log.set_level(6);
 
 //-------------------------
 //			Variables
@@ -23,24 +25,32 @@ var clients = [];
 //			INIT
 //-------------------------
 
+sDat.preCacheAssets();
 server.listen(8000);
 
+//serve the client files in my home dir
 app.configure(function(){
 			  var pa = path.resolve(__dirname + '/../client/');
 			  app.use(express.static(pa));
 			  });
+//resolve the root web address to our page.
 app.get('/', function (req, res) {
 		var pa = path.resolve(__dirname + '/../client/map.html');
 		res.sendfile(pa);
 		});
 
+//socket io with the client where we will be doing all of the interation with
+//the clients
 io.sockets.on('connection', function (socket) {
 			  clients.push(socket);
-			  
-			  socket.emit('init_data', { layers: 'nutin'});
+			  socket.emit('init_data',
+						  { data:
+							{ objects: JSON.stringify(sDat.objects),
+						  layers: JSON.stringify(sDat.layers)}
+						  });
 			  socket.on('init_complete', function (data) {
 						console.log(data);
 						});
 			  });
 
-sDat.preCacheAssets();
+log.log(JSON.stringify(clients), 7);
