@@ -2,7 +2,6 @@
 //			Requires
 //-------------------------
 var net = require('net');
-var util = require('./LayerFac.js');
 var fs = require('fs');
 var path = require('path');
 var express = app = require('express')
@@ -10,6 +9,7 @@ var express = app = require('express')
 , server = require('http').createServer(app)
 , io = require('socket.io').listen(server);
 
+var sDat = require('./ServerData.js');
 
 //-------------------------
 //			Variables
@@ -43,6 +43,4 @@ io.sockets.on('connection', function (socket) {
 						});
 			  });
 
-console.log(typeof util);
-var n = util.add();
-console.log(typeof n);
+sDat.preCacheAssets();

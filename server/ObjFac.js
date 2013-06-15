@@ -14,7 +14,7 @@ ObjFac.prototype.add = function()
 }
 
 
-// Include Client Layer Object (not the best method)
+// Include Client Object (not the best method)
 eval(fs.readFileSync(__dirname + '/../client/Obj.js')+'');
 
 

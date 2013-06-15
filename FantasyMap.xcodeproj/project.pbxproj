@@ -17,6 +17,7 @@
 		F3C393C01755A9EF0070B26F /* Main.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Main.js; sourceTree = "<group>"; };
 		F3CC5872176BE44100758604 /* LayerFac.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = LayerFac.js; path = server/LayerFac.js; sourceTree = "<group>"; };
 		F3CC5873176BE56F00758604 /* ObjFac.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = ObjFac.js; path = server/ObjFac.js; sourceTree = "<group>"; };
+		F3CC5874176BF3D600758604 /* Logger.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = Logger.js; path = server/Logger.js; sourceTree = "<group>"; };
 		F3D9866B1764E10A0049D285 /* main_layer.fmd */ = {isa = PBXFileReference; lastKnownFileType = text; path = main_layer.fmd; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.javascript; };
 		F3D9866C17669E100049D285 /* jquery.min.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = jquery.min.js; path = "../../../../Users/gideon/Dropbox/dnd campaign/FantasyMap/client/jquery.min.js"; sourceTree = DEVELOPER_DIR; };
 		F3D9866D1766B3DB0049D285 /* map.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = map.css; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.css; };
@@ -82,6 +83,7 @@
 				F3E3A4D0176BCEF5001B2F54 /* ServerData.js */,
 				F3CC5872176BE44100758604 /* LayerFac.js */,
 				F3CC5873176BE56F00758604 /* ObjFac.js */,
+				F3CC5874176BF3D600758604 /* Logger.js */,
 			);
 			name = server;
 			sourceTree = "<group>";

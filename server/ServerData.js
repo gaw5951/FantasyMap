@@ -1,11 +1,14 @@
 module.exports =  new ServerData();
 
 var fs = require('fs');
+var path = require('path');
+var LayerFac = require('./LayerFac.js');
+var ObjFac = require('./ObjFac.js');
 
 function ServerData()
 {
-	this.objects = new Array;
-	this.layers = new Array;
+	this.objects_file_contents = new Array;
+	this.layers_file_contents = new Array;
 	
 	this.objFiles = new Array('square.ini', 'world_outline.ini');
 	this.layerFiles = new Array('main_layer.fmd');
@@ -13,15 +16,19 @@ function ServerData()
 
 ServerData.prototype.preCacheAssets = function()
 {
-	//layers
-	for (var i = 0; i < layerFiles.length; i++)
+	var pa = path.resolve(__dirname + '/../objects');
+	//objects
+	for (var i = 0; i < this.objFiles.length; i++)
 	{
-		layers.push(fs.readFileSync('./' + O + layerFiles[i]).toString());
+		this.objects_file_contents.push(
+			fs.readFileSync(pa + '/' + this.objFiles[i]).toString());
 	}
 	
-	//objects
-	for (var i = 0; i < objFiles.length; i++)
+	//layers
+	for (var i = 0; i < this.layerFiles.length; i++)
 	{
-		objects.push(fs.readFileSync('./' + O + objFiles[i]).toString());
+		this.layers_file_contents.push(
+			fs.readFileSync(pa + '/' + this.layerFiles[i]).toString());
 	}
+	
 }
