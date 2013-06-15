@@ -15,15 +15,17 @@
 		F3C393BE1752A2530070B26F /* square.ini */ = {isa = PBXFileReference; lastKnownFileType = text; path = square.ini; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.javascript; };
 		F3C393BF1752EAC40070B26F /* world_outline.ini */ = {isa = PBXFileReference; lastKnownFileType = text; path = world_outline.ini; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.javascript; };
 		F3C393C01755A9EF0070B26F /* Main.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Main.js; sourceTree = "<group>"; };
+		F3CC5872176BE44100758604 /* LayerFac.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = LayerFac.js; path = server/LayerFac.js; sourceTree = "<group>"; };
+		F3CC5873176BE56F00758604 /* ObjFac.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = ObjFac.js; path = server/ObjFac.js; sourceTree = "<group>"; };
 		F3D9866B1764E10A0049D285 /* main_layer.fmd */ = {isa = PBXFileReference; lastKnownFileType = text; path = main_layer.fmd; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.javascript; };
-		F3D9866C17669E100049D285 /* jquery.min.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = jquery.min.js; path = "../../../../Users/gideon/Dropbox/dnd campaign/FantasyMap/jquery.min.js"; sourceTree = DEVELOPER_DIR; };
+		F3D9866C17669E100049D285 /* jquery.min.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = jquery.min.js; path = "../../../../Users/gideon/Dropbox/dnd campaign/FantasyMap/client/jquery.min.js"; sourceTree = DEVELOPER_DIR; };
 		F3D9866D1766B3DB0049D285 /* map.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = map.css; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.css; };
-		F3D9866E1767DF390049D285 /* server.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = server.js; sourceTree = "<group>"; };
+		F3D9866E1767DF390049D285 /* server.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = server.js; path = server/server.js; sourceTree = "<group>"; };
 		F3E098E11763E1B6003F9D36 /* Env.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Env.js; sourceTree = "<group>"; };
 		F3E098E21763E1B6003F9D36 /* Layer.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Layer.js; sourceTree = "<group>"; };
 		F3E098E31763E1B6003F9D36 /* Obj.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Obj.js; sourceTree = "<group>"; };
-		F3E3A4CF176A87A9001B2F54 /* util.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = util.js; sourceTree = "<group>"; };
-		F3E3A4D0176BCEF5001B2F54 /* server_data.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = server_data.js; sourceTree = "<group>"; };
+		F3E3A4CF176A87A9001B2F54 /* util.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = util.js; path = server/util.js; sourceTree = "<group>"; };
+		F3E3A4D0176BCEF5001B2F54 /* ServerData.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = ServerData.js; path = server/ServerData.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -32,17 +34,8 @@
 			children = (
 				F3C393BA17527D580070B26F /* objects */,
 				F3C393B817527D510070B26F /* assets */,
-				F3D9866D1766B3DB0049D285 /* map.css */,
-				F3C393B317527CF70070B26F /* map.html */,
-				F3C393C01755A9EF0070B26F /* Main.js */,
-				F3161BC9175808B3004382D6 /* Editor.js */,
-				F3E098E11763E1B6003F9D36 /* Env.js */,
-				F3E098E21763E1B6003F9D36 /* Layer.js */,
-				F3E098E31763E1B6003F9D36 /* Obj.js */,
-				F3E3A4CF176A87A9001B2F54 /* util.js */,
-				F3D9866E1767DF390049D285 /* server.js */,
-				F3E3A4D0176BCEF5001B2F54 /* server_data.js */,
-				F3D9866C17669E100049D285 /* jquery.min.js */,
+				F3CC5870176BDC5F00758604 /* client */,
+				F3CC5871176BDCEE00758604 /* server */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +57,33 @@
 				F3C393BB17527D580070B26F /* square.csv */,
 			);
 			path = objects;
+			sourceTree = "<group>";
+		};
+		F3CC5870176BDC5F00758604 /* client */ = {
+			isa = PBXGroup;
+			children = (
+				F3D9866D1766B3DB0049D285 /* map.css */,
+				F3C393B317527CF70070B26F /* map.html */,
+				F3C393C01755A9EF0070B26F /* Main.js */,
+				F3161BC9175808B3004382D6 /* Editor.js */,
+				F3E098E11763E1B6003F9D36 /* Env.js */,
+				F3E098E21763E1B6003F9D36 /* Layer.js */,
+				F3E098E31763E1B6003F9D36 /* Obj.js */,
+				F3D9866C17669E100049D285 /* jquery.min.js */,
+			);
+			path = client;
+			sourceTree = "<group>";
+		};
+		F3CC5871176BDCEE00758604 /* server */ = {
+			isa = PBXGroup;
+			children = (
+				F3E3A4CF176A87A9001B2F54 /* util.js */,
+				F3D9866E1767DF390049D285 /* server.js */,
+				F3E3A4D0176BCEF5001B2F54 /* ServerData.js */,
+				F3CC5872176BE44100758604 /* LayerFac.js */,
+				F3CC5873176BE56F00758604 /* ObjFac.js */,
+			);
+			name = server;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

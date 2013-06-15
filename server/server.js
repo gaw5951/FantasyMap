@@ -2,8 +2,9 @@
 //			Requires
 //-------------------------
 var net = require('net');
-var util = require('./server_data.js');
+var util = require('./LayerFac.js');
 var fs = require('fs');
+var path = require('path');
 var express = app = require('express')
 , app = app()
 , server = require('http').createServer(app)
@@ -25,16 +26,18 @@ var clients = [];
 server.listen(8000);
 
 app.configure(function(){
-			  app.use(express.static(__dirname));
+			  var pa = path.resolve(__dirname + '/../client/');
+			  app.use(express.static(pa));
 			  });
 app.get('/', function (req, res) {
-		res.sendfile(__dirname + '/map.html');
+		var pa = path.resolve(__dirname + '/../client/map.html');
+		res.sendfile(pa);
 		});
 
 io.sockets.on('connection', function (socket) {
 			  clients.push(socket);
 			  
-			  socket.emit('init_data', { layers: client_data[0] });
+			  socket.emit('init_data', { layers: 'nutin'});
 			  socket.on('init_complete', function (data) {
 						console.log(data);
 						});
