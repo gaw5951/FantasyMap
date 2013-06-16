@@ -11,7 +11,7 @@ var express = app = require('express')
 
 var sDat = require('./ServerData.js');
 var log = require('./Logger.js');
-log.set_level(6);
+log.set_level(7);
 
 //-------------------------
 //			Variables
@@ -43,14 +43,21 @@ app.get('/', function (req, res) {
 //the clients
 io.sockets.on('connection', function (socket) {
 			  clients.push(socket);
+			  
 			  socket.emit('init_data',
 						  { data:
-							{ objects: JSON.stringify(sDat.objects),
-						  layers: JSON.stringify(sDat.layers)}
+							{
+								objects: JSON.stringify(sDat.objects),
+								layers: JSON.stringify(sDat.layers)
+							}
 						  });
+			  
 			  socket.on('init_complete', function (data) {
-						console.log(data);
+						log.log(data, 7);
 						});
+			  
+			  socket.on('save_data', function (data) {
+						log.log(data, 7);
+						});
+			  
 			  });
-
-log.log(JSON.stringify(clients), 7);
