@@ -25,113 +25,46 @@ var res_data = 0;
 // ---------------------------------
 $(document).ready(function()
 				  {
-				  var objFiles = new Array(O + 'square.ini', O + 'world_outline.ini');
-				  var layerFiles = new Array(O + 'main_layer.fmd');
-				  
-				  var divObjs = document.getElementById('vert_objects');
-				  var divLayers = document.getElementById('layer_objects');
-				  
+				  				  
 				  
 				  var addr = document.URL.replace(new RegExp('/','gm'),'').split(':');
 				  var socket = io.connect('http://' + addr[1] + ':8000');
 				  socket.on('init_data', function (data) {
 							console.log(data);
 							res_data = data;
+							loadAssets();
 							socket.emit('init_complete', true);
+							document.getElementById('main_screen').style.display	= 'block';
+							document.getElementById('landing_screen').style.display	= 'none';
 							});
-				  function storeData(data)
-				  {
-					  //objs
-				  
-					  var myvar = data.objects;
-					  var idstr = 'objs_' + iter;
-					  var newField = document.createElement('input');
-					  newField.setAttribute('id', idstr);
-					  newField.setAttribute('type', 'hidden');
-					  newField.setAttribute('value', myvar);
-					  divObjs.appendChild(newField);
-					  
-					  //layers
-					  myvar = data.layers;
-					  idstr = 'layer_' + iter;
-					  newField = document.createElement('input');
-					  newField.setAttribute('id', idstr);
-					  newField.setAttribute('type', 'hidden');
-					  newField.setAttribute('value', myvar);
-					  divLayers.appendChild(newField);
-				  
-				  }
-				  
-				  /*
-				  for (var i = 0; i < objFiles.length; i++)
-				  {
-				  (function(iter)
-				   {
-				   $.ajax(
-						  {
-						  async: false,
-						  type: 'GET',
-						  url: objFiles[iter],
-						  success: function(data)
-						  {
-						  var myvar = data;
-						  var idstr = 'objs_' + iter;
-						  var newField = document.createElement('input');
-						  newField.setAttribute('id', idstr);
-						  newField.setAttribute('type', 'hidden');
-						  newField.setAttribute('value', myvar);
-						  divObjs.appendChild(newField);
-						  }
-						  });
-				   })(i);
-				  }
-				  
-				  for (var i = 0; i < layerFiles.length; i++)
-				  {
-				  (function(iter)
-				   {
-				   $.ajax(
-						  {
-						  async: false,
-						  type: 'GET',
-						  url: layerFiles[iter],
-						  success: function(data)
-						  {
-						  var myvar = data;
-						  var idstr = 'layer_' + iter;
-						  var newField = document.createElement('input');
-						  newField.setAttribute('id', idstr);
-						  newField.setAttribute('type', 'hidden');
-						  newField.setAttribute('value', myvar);
-						  divLayers.appendChild(newField);
-						  }
-						  });
-				   })(i);
-				  }*/
-				  
+				  				  
 				  });
 
 function loadAssets()
 {
 	loadLayers();
 	loadObjs();
+	draw();
 }
 
 function loadLayers()
 {
-	var divLayers = document.getElementById('layer_objects');
-	var objs_x = divLayers.getElementsByTagName('input');
+
 	var curr_layer = 0;
+	var inLayers = jQuery.parseJSON(res_data.data.layers);
 	
-	for (var i = 0; i < objs_x.length; i++)
+	for (var i = 0; i < inLayers.length; i++)
 	{
 		curr_layer = new Layer;
-		var jsonObj = objs_x[i].value;
-		var inLayer = jQuery.parseJSON(jsonObj);
+		var inLayer = inLayers[i];
 		
 		curr_layer.set_name(inLayer.name);
 		curr_layer.set_l_objs(inLayer.l_objs);
 		curr_layer.set_prio(inLayer.prio);
+		/*for (var j = 0; j < inObj.verts.length; j++)
+		{
+			curr_layer.addObjById();
+		}*/
 		
 		_env.addLayer(curr_layer);
 	}
@@ -140,17 +73,14 @@ function loadLayers()
 
 function loadObjs()
 {
-	var divObjs = document.getElementById('vert_objects');
-	var objs_x = divObjs.getElementsByTagName('input');
+	var inObjs = jQuery.parseJSON(res_data.data.objects);
 	var curr_Obj = 0;
 	
-	for (var i = 0; i < objs_x.length; i++)
+	for (var i = 0; i < inObjs.length; i++)
 	{
 		
 		curr_Obj = new Obj;
-		var jsonObj = objs_x[i].value;
-		var inObj = jQuery.parseJSON(jsonObj);
-		var myarr = inObj.verts.split(";");
+		var inObj = inObjs[i];
 		
 		curr_Obj.set_id(inObj.id);
 		curr_Obj.set_name(inObj.name);
@@ -162,15 +92,9 @@ function loadObjs()
 		curr_Obj.set_drawSkip(inObj.drawSkip);
 		
 		//load verts
-		for (var j = 0; j < myarr.length; j++)
+		for (var j = 0; j < inObj.verts.length; j++)
 		{
-			if (myarr[j] != "" && j % curr_Obj.drawSkip == 0)
-			{
-				var t = myarr[j].split(',');
-				t[0] = (t[0] * 10) - 23040; //-22080;
-				t[1] = (t[1] * 10) - 17280; //34560;//-21720;
-				curr_Obj.addVert(t[0], t[1]);
-			}
+			curr_Obj.addVert(inObj.verts[j].x, inObj.verts[j].y);
 		}
 		_env.addObj(curr_Obj);
 	}
@@ -202,7 +126,7 @@ window.onload = function()
 	// -----------------------
 	//	Load Assets
 	// -----------------------
-	loadAssets();
+	//now loaded once we have recieved data
 	
 	// -----------------------
 	//	Initial draw

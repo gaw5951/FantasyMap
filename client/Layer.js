@@ -26,6 +26,11 @@ Layer.prototype.addObj = function(oth)
 	this.l_objs.push(oth.id);
 }
 
+Layer.prototype.addObjById = function(id)
+{
+	this.l_objs.push(id);
+}
+
 //  ---------------------------------
 //			MARK: Setters
 // ---------------------------------
