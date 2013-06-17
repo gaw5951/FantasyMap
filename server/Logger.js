@@ -28,7 +28,9 @@ Logger.prototype.log = function(text, level)
 {
 	if(typeof level == "undefined" )
 		level = 1;
-	
+	//console.log(level);
+	//console.log(this.level);
+	//console.log("-- '" + text.toString().slice(0,10));
 	if(level <= this.level)
 	{
 		console.log(text);

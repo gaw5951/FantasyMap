@@ -4,6 +4,7 @@
 var net = require('net');
 var fs = require('fs');
 var path = require('path');
+var argv = require('optimist').argv;
 var express = app = require('express')
 , app = app()
 , server = require('http').createServer(app)
@@ -11,15 +12,13 @@ var express = app = require('express')
 
 var sDat = require('./ServerData.js');
 var log = require('./Logger.js');
-log.set_level(7);
+log.set_level(argv.d);
+io.set('log level', 1); // reduce logging
 
 //-------------------------
 //			Variables
 //-------------------------
 var clients = [];
-
-
-
 
 //-------------------------
 //			INIT
@@ -44,6 +43,7 @@ app.get('/', function (req, res) {
 io.sockets.on('connection', function (socket) {
 			  clients.push(socket);
 			  
+			  log.log("event - 'connection'");
 			  socket.emit('init_data',
 						  { data:
 							{
@@ -53,11 +53,15 @@ io.sockets.on('connection', function (socket) {
 						  });
 			  
 			  socket.on('init_complete', function (data) {
+						
+						log.log("event - 'init_complete'");
 						log.log(data, 7);
 						});
 			  
 			  socket.on('save_data', function (data) {
+						log.log("event - 'save_data'");
 						log.log(data, 7);
 						});
 			  
 			  });
+log.log("   init - Server Ready ------------------", 0);
