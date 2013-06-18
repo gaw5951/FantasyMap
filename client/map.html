@@ -34,7 +34,10 @@
 							<b>Layer</b>
 							<hr />
 							<form action="javascript:editor.newLayer(this.newLayerForm);" name="newLayerForm">
-								<input type="text" name="name" value="New Layer"/>
+								<div>
+									<span class="input_label">Name</span>
+									<input type="text" id="layer_name" value="New Layer" />
+								</div>
 								<input type="submit" name="New Layer" value="New Layer" />
 							</form>
 						</div>
@@ -45,12 +48,38 @@
 						<div class="option_area">
 							<b>Object</b>
 							<hr />
-							<form action="javascript:editor.newObj(this.newObjForm);" name="newObjForm">
-								<input type="text" name="name" value="New Object" />
-								<input type="text" name="lineWidth" value="5" />
-								<input type="text" name="fillColor" value="black" />
-								<input type="submit" name="submit" value="Create Object" />
-							</form>
+							<div>
+								<span class="input_label">Id</span>
+								<input type="text" id="obj_id" value="0" />
+							</div>
+							<div>
+								<span class="input_label">Name</span>
+								<input type="text" id="obj_name" value="New Object" />
+							</div>
+							<div>
+								<span class="input_label">StrokeStyle</span>
+								<input type="text" id="obj_strokeStyle" value="black" />
+							</div>
+							<div>
+								<span class="input_label">Fill</span>
+								<input type="text" id="obj_fill" value="false" />
+							</div>
+							<div>
+								<span class="input_label">FillColor</span>
+								<input type="text" id="obj_fillColor" value="black" />
+							</div>
+							<div>
+								<span class="input_label">DrawType</span>
+								<input type="text" id="obj_drawType" value="curve" />
+							</div>
+							<div>
+								<span class="input_label">DrawSkip</span>
+								<input type="text" id="obj_drawSkip" value="black" />
+							</div>
+							<div>
+								<input type="button" id="obj_new_obj" value="New Object" />
+								<input type="button" id="obj_del_obj" value="Delete Object" />
+							</div>
 						</div>
 					</span>
 				</div>

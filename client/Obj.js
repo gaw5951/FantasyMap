@@ -10,6 +10,7 @@ var Obj = function() {
 	this.fillColor		= 'red';
 	
 	this.lineWidth		= 10;
+	this.strokeStyle	= 'black';
 	return this;
 }
 
@@ -84,6 +85,12 @@ Obj.prototype.set_lineWidth = function(in_v)
 {
 	if(typeof in_v != "undefined" )
 		this.lineWidth = in_v;
+}
+
+Obj.prototype.set_strokeStyle = function(in_v)
+{
+	if(typeof in_v != "undefined" )
+		this.strokeStyle = in_v;
 }
 
 

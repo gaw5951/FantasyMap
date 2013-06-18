@@ -288,6 +288,7 @@ function drawCurveObject(ctx, p)
 	ctx.beginPath();
 	
 	ctx.fillStyle = p.fillColor;
+	ctx.strokeStyle = p.strokeStyle;
 	ctx.lineWidth = p.lineWidth;
 	
 	// move to the first point
@@ -316,6 +317,7 @@ function drawLineObject(ctx, p)
 	ctx.beginPath();
 	
 	ctx.fillStyle = p.fillColor;
+	ctx.strokeStyle = p.strokeStyle;
 	ctx.lineWidth = p.lineWidth;
 	
 	// move to the first point

@@ -22,6 +22,30 @@ editor.selectObj = function selectObj(obj)
 	var oList = document.getElementById('object_list');
 	var objId = oList.options[oList.selectedIndex].attributes['valueid'].value;
 	this.currObj = _env.selectObjectById(objId);
+	this.updateObjProps();
+}
+
+editor.updateObjProps = function updateObjProps()
+{
+	//select obj for editing etc
+	var oId				= document.getElementById('obj_id');
+	var oName			= document.getElementById('obj_name');
+	var ostrokeStyle	= document.getElementById('obj_strokeStyle');
+	var oFill			= document.getElementById('obj_fill');
+	var oFillColor		= document.getElementById('obj_fillColor');
+	var oDrawType		= document.getElementById('obj_drawType');
+	var oDrawSkip		= document.getElementById('obj_drawSkip');
+	
+	oId				.value = this.currObj.id;
+	oName			.value = this.currObj.name;
+	ostrokeStyle	.value = this.currObj.strokeStyle;
+	oFill			.value = this.currObj.fill;
+	oFillColor		.value = this.currObj.fillColor;
+	oDrawType		.value = this.currObj.drawType;
+	oDrawSkip		.value = this.currObj.drawSkip;
+	
+	
+	//add hooks here so every callbacks directly change the object?
 }
 
 editor.updateLayerList = function updateLayerList()
@@ -53,7 +77,7 @@ editor.updateLayerList = function updateLayerList()
 			inDisplayList = false;
 		}
 	}
-	editor.updateObjList();
+	this.updateObjList();
 }
 
 editor.updateObjList = function updateObjList()
@@ -93,7 +117,7 @@ editor.newObj = function newObj(e)
 	this.currObj = oth;
 	_env.addObj(oth);
 	this.mode = 1;
-	editor.updateObjList();
+	this.updateObjList();
 }
 
 editor.endObj = function endNewObj()
