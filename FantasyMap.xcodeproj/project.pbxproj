@@ -26,6 +26,7 @@
 		F3E098E21763E1B6003F9D36 /* Layer.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Layer.js; sourceTree = "<group>"; };
 		F3E098E31763E1B6003F9D36 /* Obj.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Obj.js; sourceTree = "<group>"; };
 		F3E3A4D0176BCEF5001B2F54 /* ServerData.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = ServerData.js; path = server/ServerData.js; sourceTree = "<group>"; };
+		F3F04A6817702E31005B78ED /* node_modules */ = {isa = PBXFileReference; lastKnownFileType = folder; name = node_modules; path = server/node_modules; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -77,6 +78,7 @@
 		F3CC5871176BDCEE00758604 /* server */ = {
 			isa = PBXGroup;
 			children = (
+				F3F04A6817702E31005B78ED /* node_modules */,
 				F3D9866E1767DF390049D285 /* server.js */,
 				F3E3A4D0176BCEF5001B2F54 /* ServerData.js */,
 				F3CC5872176BE44100758604 /* LayerFac.js */,
